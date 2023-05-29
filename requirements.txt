@@ -1,6 +1,5 @@
 fastapi
 uvicorn[standard]
-tkinter
 pandas
 openpyxl
 typing
