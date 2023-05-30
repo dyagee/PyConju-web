@@ -1,0 +1,9 @@
+flask
+pandas
+openpyxl
+typing
+aiofiles
+python-multipart
+jinja2
+dnspython
+tkinter
