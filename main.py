@@ -2,14 +2,13 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi import FastAPI,Request, Form
-from typing import Annotated
 from tkinter import filedialog as dialog
 import tkinter
 import pandas as pd
 import openpyxl
 from openpyxl.utils.dataframe import dataframe_to_rows as drows
 import os
-import uvicorn
+
 
 
 app = FastAPI()
@@ -21,7 +20,7 @@ async def index(request:Request):
     return templates.TemplateResponse('base.html',{"request":request})
 
 @app.post('/merge',response_class=HTMLResponse)
-async def excel(submit:Annotated[str,Form()],request:Request):
+async def excel(request:Request, submit:str=Form(...)):
     
     if submit  == "Select":
         if submit:
