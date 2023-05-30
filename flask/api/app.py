@@ -74,4 +74,4 @@ def excel():
 #app.run(port=8000,host="localhost",debug=True,threaded=True)
 if __name__ == '__main__':
     from werkzeug.serving import run_simple
-    run_simple('0.0.0.0', 0, app,threaded=True)
+    run_simple(0, app,threaded=True)
