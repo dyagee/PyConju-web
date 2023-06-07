@@ -39,6 +39,7 @@
             border-radius: 5px;
             font-size: 18px;
             cursor: pointer;
+            margin-top: 30px;
         }
 
         #output {
@@ -46,6 +47,7 @@
             position:relative;
             left:37%;
             margin-top: 30px;
+            margin-bottom: 50px;
             font-size: 18px;
             width: 300px;
             padding: 20px;
@@ -66,24 +68,63 @@
         .error {
             color: #FF0000;
         }
+        #download{
+            position:relative;
+            margin-top: 60px;
+            margin-bottom: 50px;
+            border: none;
+            text-align: center;
+        }
+        #download {
+            font-family: "Roboto", Helvetica;
+            font-size: 18px;
+            width: 300px;
+            padding: 10px;
+            background-color: #08025f;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #ffffff;
+        }
+        #download:hover {
+            background-color: #453cc4;
+        
+        }
+       
     </style>
 </head>
 <body>
-    <div class="hd" style="margin-top: 18%;">Online File Converter</div>
+    <div class="hd" style="margin-top: 14%;">Online File Converter</div>
     <div>
         <p class="tt">Select a folder that contains all the excel files to merge:</p>
     </div>
     
     <br>
-    <form action = "{{url_for('excel')}}" method="POST">
-        <input type="hidden" name="submit" value="Select" />
-    <button type="submit" id="convert-button">Select</button>
+    <form action = "{{url_for('excel')}}" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="sub" value="Select" />
+        <input type="file" id = "file" name="xls" multiple="multiple" required /> <br/>
+    <button type="submit" id="convert-button">Merged</button>
     </form>
     {% if msg%}
     <div id="output" class="{{success}}">
         {{msg}}
     </div>
     {%endif%}
+
+    {% if download %}
+            <form id="successForm" action="{{url_for('download_success')}}" method="POST">
+                <input type="hidden" name="downloaded" value="success" />
+                <input type="hidden" name="download" value="{{download}}" />
+            </form>
+            <div>
+            <a href="{{url_for('download',fileName=download)}}" id="download" target="_blank" onclick="Relay()">Download File</a>
+            </div>
+            <script>
+                function Relay(){
+                    document.getElementById('successForm').submit();
+                }
+            </script>
+            {% endif %}
 
     
 </body>
