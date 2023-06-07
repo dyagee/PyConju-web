@@ -97,4 +97,4 @@ def download_success():
 if __name__ == '__main__':
     #app.run(port=8000,host="localhost",debug=True,threaded=True)
     from werkzeug.serving import run_simple
-    run_simple( 5000, app)
+    run_simple('0.0.0.0', 5000, app,use_reloader=True)

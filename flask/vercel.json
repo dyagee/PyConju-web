@@ -1,5 +1,4 @@
 {
-    "devCommand":"python app.py",
     "builds": [
         {
             "src": "api/app.py",
