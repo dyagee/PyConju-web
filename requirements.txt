@@ -7,4 +7,3 @@ aiofiles
 python-multipart
 jinja2
 dnspython
-tk
