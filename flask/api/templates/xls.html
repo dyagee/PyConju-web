@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block subtext %}
+<p class="tt"> Select a folder that contains all the excel [.xls] files to merge: </p>
+{% endblock %}
+
+{% block form %}
+<form action = "{{url_for('excel_xls')}}" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="sub" value="Select" />
+    <input type="file" id = "file" name="xls" multiple="multiple" accept=".xls" required /> <br/>
+<button type="submit" id="convert-button">Merge</button>
+</form>
+{% endblock %}
+

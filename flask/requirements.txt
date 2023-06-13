@@ -6,3 +6,4 @@ aiofiles
 python-multipart
 jinja2
 dnspython
+xlrd>=2.0.1
